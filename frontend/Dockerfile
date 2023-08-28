@@ -2,9 +2,7 @@ FROM node:18.17.1
 
 WORKDIR /app
 
-ENV PATH /app/node_modules/.bin:$PATH
-
-COPY gamerpay-test-frontend/package*.json ./
+COPY package*.json ./
 
 RUN yarn install
 

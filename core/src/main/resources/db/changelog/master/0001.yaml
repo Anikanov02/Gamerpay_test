@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1693175418740-1
+      author: Sanya (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: messagesPK
+                  name: message_id
+                  type: BIGINT
+              - column:
+                  name: content
+                  type: VARCHAR(255)
+            tableName: messages

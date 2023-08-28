@@ -1,0 +1,28 @@
+version: '3'
+services:
+  backend:
+    image: backend-image
+    ports:
+      - "9090:9090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3307/gamerpay_test?autoReconnect=true
+    depends_on:
+      - db
+
+  frontend:
+    image: frontend-image
+    ports:
+      - "5000:5000"
+
+  db:
+    image: mysql:latest
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_DATABASE=gamerpay_test
+    volumes:
+      - db-data:/var/lib/mysql
+    command: --port=3307
+volumes:
+  db-data:
